@@ -101,7 +101,7 @@ A simple frontend is implemented using **HTML** and **Bootstrap** to interact wi
 
 5. **Configure the database credentials in the PHP files.**
 
-   - Open the `db_connection.php` file, which is used to establish a connection to the MariaDB database.
+   - Open the `connection.php` file, which is used to establish a connection to the MariaDB database.
    - Inside this file, set the database credentials such as the `username`, `password`, and `dbname` to match your MariaDB server settings. For example:
 
      ```php
