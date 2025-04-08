@@ -23,3 +23,18 @@ CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
+```
+
+### Table: **products**
+```sql
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2),
+    quantity INT,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+```
+
