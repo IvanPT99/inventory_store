@@ -12,16 +12,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             VALUES ('$name', '$description', '$price', '$quantity', '$category_id')";
 
     if ($conn->query($sql) === TRUE) {
-        $message = "<div class='success'>Product added successfully.</div>";
+        $message = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+                        Product added successfully.
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>";
     } else {
-        $message = "<div class='error'>Error: " . $conn->error . "</div>";
+        $message = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                        Error: " . $conn->error . "
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>";
     }
 }
 
 $sql_categories = "SELECT * FROM categories";
 $categories_result = $conn->query($sql_categories);
 if ($categories_result->num_rows == 0) {
-    $category_error = "<div class='error'>No categories found in the database. Please add categories first.</div>";
+    $category_error = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                        No categories found in the database. Please add categories first.
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>";
 }
 
 $conn->close();
@@ -42,11 +51,14 @@ $conn->close();
     <div class="container mt-5">
         <h2 class="text-center mb-4">Add Product</h2>
 
+        <!-- Display success or error message -->
         <?php
-        if (isset($message))
+        if (isset($message)) {
             echo $message;
-        if (isset($category_error))
+        }
+        if (isset($category_error)) {
             echo $category_error;
+        }
         ?>
 
         <form method="POST" action="add_product.php">
