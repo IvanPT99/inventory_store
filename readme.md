@@ -125,3 +125,8 @@ A simple frontend is implemented using **HTML** and **Bootstrap** to interact wi
      - If you're using **XAMPP** or **WAMP** (local server environments), the default username is usually `root` and the password is often left blank (i.e., `""`).
 
    Once you have updated the credentials, the PHP backend will be able to connect to the MariaDB database and perform the required operations (add, list, update, delete products).
+
+
+# NOTE
+
+This project was created as part of a class assignment. I took the opportunity to share the code on GitHub, which allowed me to practice working with databases and PHP.
